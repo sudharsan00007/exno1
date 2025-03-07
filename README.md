@@ -80,6 +80,28 @@ df.describe()
 ```
 ![Screenshot 2025-03-07 153108](https://github.com/user-attachments/assets/6d8fb618-fd72-4057-b4ce-d2b0baf31d01)
 
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+def plot_boxplots(df):
+    numerical_cols = ["num_episodes", "rating", "current_overall_rank", "lifetime_popularity_rank", "watchers"]
+    
+    plt.figure(figsize=(15, 8))
+    for i, col in enumerate(numerical_cols, 1):
+        plt.subplot(2, 3, i)
+        sns.boxplot(y=df[col])
+        plt.title(col)
+    
+    plt.tight_layout()
+    plt.show()
+
+plot_boxplots(df)
+
+```
+![image](https://github.com/user-attachments/assets/8631a828-e0f4-4089-9e62-2e00bbb0d5d6)
+
 Remove outliers using IQR
 ```
 import pandas as pd
